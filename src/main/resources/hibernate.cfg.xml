@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="connection.url">jdbc:mysql://localhost:3306/stu</property>
+    <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="connection.username">root</property>
+    <property name="connection.password">root</property>
+    <!--SQL dialect-->
+    <!-- 使用mysql的方言  告诉hibernate 数据库的类型 -->
+    <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+    <!--是否在控制台显示执行的sql语句-->
+    <property name="show_sql">true</property>
+    <!--事务管理方式，每一个线程 控制一个事务-->
+    <property name="current_session_context_class">thread</property>
+    <!--是否自动更新数据库的表结构，不需要创新表 hibernate会自动去创建表结构-->
+    <property name="hbm2ddl.auto">update</property>
+    <!--映射文件-->
+    <!--<mapping resource="com/zjx/po/StudentEntity.hbm.xml"/>-->
+    <mapping class="com.zjx.po.Student"/>
+    <!-- DB schema will be updated if needed -->
+    <!-- <property name="hbm2ddl.auto">update</property> -->
+  </session-factory>
+</hibernate-configuration>
